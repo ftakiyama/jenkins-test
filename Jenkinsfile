@@ -8,7 +8,7 @@ pipeline {
     stages {
        stage('Test') {
            steps {
-               sh './bla ${MYPARAM}'
+               sh './bla.sh ${MYPARAM}'
            }
        }
    }
