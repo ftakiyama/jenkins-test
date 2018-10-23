@@ -8,9 +8,8 @@ pipeline {
   stages {
     stage('Test') {
       steps {
-        env.myparam="${MYPARAM}"
         sh 'chmod +x ./bla.sh'
-        sh './bla.sh ${env.myparam}'
+        sh "bash -c \" source ./bla.sh ${MYPARAM}\""
       }
     }
   }
