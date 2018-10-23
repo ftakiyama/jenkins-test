@@ -9,7 +9,7 @@ pipeline {
     stage('Test') {
       steps {
         sh 'chmod +x ./bla.sh'
-        sh "bash -c \" source ./bla.sh ${MYPARAM}\""
+        sh "bash -c \"source ./bla.sh ${MYPARAM}\""
       }
     }
   }
