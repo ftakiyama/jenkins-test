@@ -8,10 +8,9 @@ pipeline {
   stages {
     stage('Test') {
       steps {
-        echo "Here it is"
-        echo "${MYPARAM}"
+        env.myparam="${MYPARAM}"
         sh 'chmod +x ./bla.sh'
-        sh './bla.sh ${MYPARAM}'
+        sh './bla.sh ${env.myparam}'
       }
     }
   }
