@@ -9,7 +9,7 @@ pipeline {
     stage('Test') {
       steps {
         echo "Here it is"
-        echo ${MYPARAM}
+        echo "${MYPARAM}"
         sh 'chmod +x ./bla.sh'
         sh './bla.sh ${MYPARAM}'
       }
