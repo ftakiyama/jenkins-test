@@ -8,8 +8,10 @@ pipeline {
   stages {
     stage('Test') {
       steps {
+        echo "Here it is"
+        echo $MYPARAM
         sh 'chmod +x ./bla.sh'
-        sh './bla.sh ${MYPARAM}'
+        sh './bla.sh $MYPARAM'
       }
     }
   }
