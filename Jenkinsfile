@@ -10,7 +10,7 @@ pipeline {
       }
       agent {
         docker {
-          image "docker:8.12.0"
+          image "node:8.12.0"
         }
       }
       stages {
@@ -30,7 +30,7 @@ pipeline {
       }
       agent {
         docker {
-          image "docker:6.14.4"
+          image "node:6.14.4"
         }
       }
       stages {
