@@ -1,36 +1,44 @@
 pipeline {
-  agent {
-    docker {
-      image "${params.agent}"
-      args '-p 3000:"3000'
-    }
-  }
+  agent any
   stages {
-    stage('Setup') {
-      steps {
-        sh 'chmod +x ./bla.sh'
-      }
-    }
-    stage('Deploy: test') {
+    stage('Environment: Test') {
       when {
         anyOf {
           environment name: 'target_env', value: 'test'
           environment name: 'target_env', value: 'both'
         }
       }
-      steps {
-        echo 'Deploying to Test (174)'
+      agent {
+        docker {
+          image "docker:8.12.0"
+        }
+      }
+      stages {
+        stage('Deploy') {
+          steps {
+            echo 'Deploying to Test (174)'
+          }
+        }
       }
     }
-    stage('Deploy: development') {
+    stage('Environment: Dev') {
       when {
         anyOf {
           environment name: 'target_env', value: 'development'
           environment name: 'target_env', value: 'both'
         }
       }
-      steps {
-        echo 'Deploying to Development (178)'
+      agent {
+        docker {
+          image "docker:6.14.4"
+        }
+      }
+      stages {
+        stage('Deploy') {
+          steps {
+            echo 'Deploying to Test (178)'
+          }
+        }
       }
     }
   }
