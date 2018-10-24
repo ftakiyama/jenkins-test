@@ -9,7 +9,9 @@ pipeline {
     stage('Test') {
       steps {
         sh 'chmod +x ./bla.sh'
-        sh "sh -c \"source ./bla.sh ${MYPARAM}\""
+        withEnv(['myenv=${MYPARAM}']) {
+          sh './bla.sh'
+        }
       }
     }
   }
