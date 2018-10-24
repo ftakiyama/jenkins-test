@@ -1,5 +1,5 @@
 #!/bin/sh
 echo 'Hello there'
-echo $1
-
-printf "Environment variable: ${myenv}"
+printf "myenv: %s" "$myenv"
+printf "myparam: %s" "$myparam"
+printf "MYPARAM: %s" "$MYPARAM"
