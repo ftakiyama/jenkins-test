@@ -9,10 +9,7 @@ pipeline {
     stage('Test') {
       steps {
         sh 'chmod +x ./bla.sh'
-        echo "params.myparam: ${params.myparam}"
-        withEnv(["myenv=${params.myparam}"]) {
-          sh './bla.sh'
-        }
+        sh './bla.sh'
       }
     }
   }

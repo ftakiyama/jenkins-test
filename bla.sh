@@ -1,5 +1,8 @@
 #!/bin/sh
-echo 'Hello there'
-printf "myenv: %s" "$myenv"
-printf "myparam: %s" "$myparam"
-printf "MYPARAM: %s" "$MYPARAM"
+
+if [ "$target_env" = "development" ]
+then
+  printf "Will deploy to 178"
+else
+  printf "Will deploy to 174"
+fi
